@@ -10,6 +10,8 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
+using namespace cv;
+using namespace std;
 
 cv::Point2f center(0,0);
 
@@ -60,26 +62,33 @@ void sortCorners(std::vector<cv::Point2f>& corners,
 
 int main()
 {
-    cv::Mat src = cv::imread("myimg-2.png");
+    cv::Mat src = cv::imread("myimg-3.png");
+    Mat img_proc ,img_dis ;
+
     if (src.empty())
         return -1;
+    int w = src.size().width, h = src.size().height, min_w = 100;
+    double scale = min(30.0, w * 1.0 / min_w);
+    int w_proc = w * 1.0 / scale, h_proc = h * 1.0 / scale;
+    resize(src, img_proc, Size(w_proc, h_proc));
+    img_dis = img_proc.clone();
+    
     
     cv::Mat bw;
-    cv::cvtColor(src, bw, CV_BGR2GRAY);
+    cv::cvtColor(img_proc, bw, CV_BGR2GRAY);
     cv::blur(bw, bw, cv::Size(3, 3));
-    cv::Canny(bw, bw, 100, 100, 3);
+    cv::Canny(bw, bw, 50, 200, 3);
     
-    int w = src.size().width, h = src.size().height, min_w = 100;
-    double scale = fmin(10.0, w * 1.0 / min_w);
-    int w_proc = w * 1.0 / scale, h_proc = h * 1.0 / scale;
-    
+
+
     
     std::vector<cv::Vec4i> lines;
-    cv::HoughLinesP(bw, lines, 1, CV_PI/180, 100, 30, 10);
-//    cv::HoughLinesP(bw, lines, 1,CV_PI / 180, w_proc / 3, w_proc / 3, 10);
+    cv::HoughLinesP(bw, lines, 1, CV_PI/180, 30, 30, 0);
+    
+//    cv::HoughLinesP(bw, lines, 1,CV_PI / 180, w_proc / 3, w_proc / 3, 0);
     
     
-    
+    cout<<"w:"<< src.size().width<< ", w_proc:"<<w_proc <<endl;
     
 
     
@@ -100,9 +109,10 @@ int main()
     for (int i = 0; i < lines.size(); i++)
     {
         cv::Vec4i v = lines[i];
-        cv::line(dst, cv::Point(v[0], v[1]), cv::Point(v[2], v[3]), CV_RGB(0,255,0));
+        cv::line(img_dis, cv::Point(v[0], v[1]), cv::Point(v[2], v[3]), CV_RGB(0,255,0));
     }
-    cv::imshow("image", dst);
+    imshow("bwimage", bw);
+    cv::imshow("image", img_dis);
     cv::waitKey();
     
     
@@ -130,7 +140,7 @@ int main()
     if (approx.size() != 4)
     {
         std::cout << "The object is not quadrilateral!" << std::endl;
-//        std::cout << "The object is not quadrilateral! : " <<approx.size()<< std::endl;
+        std::cout << "Approx size is : " <<approx.size()<< std::endl;
         return -1;
     }
     
@@ -148,13 +158,13 @@ int main()
 
     
     // Draw corner points
-    cv::circle(dst, corners[0], 3, CV_RGB(255,0,0), 2);
-    cv::circle(dst, corners[1], 3, CV_RGB(0,255,0), 2);
-    cv::circle(dst, corners[2], 3, CV_RGB(0,0,255), 2);
-    cv::circle(dst, corners[3], 3, CV_RGB(255,255,255), 2);
+    cv::circle(img_dis, corners[0], 3, CV_RGB(255,0,0), 2);
+    cv::circle(img_dis, corners[1], 3, CV_RGB(0,255,0), 2);
+    cv::circle(img_dis, corners[2], 3, CV_RGB(0,0,255), 2);
+    cv::circle(img_dis, corners[3], 3, CV_RGB(255,255,255), 2);
     
     // Draw mass center
-    cv::circle(dst, center, 3, CV_RGB(255,255,0), 2);
+    cv::circle(img_dis, center, 3, CV_RGB(255,255,0), 2);
     
     cv::Mat quad = cv::Mat::zeros(300, 220, CV_8UC3);
     
@@ -167,7 +177,7 @@ int main()
     cv::Mat transmtx = cv::getPerspectiveTransform(corners, quad_pts);
     cv::warpPerspective(src, quad, transmtx, quad.size());
     
-    cv::imshow("image", dst);
+    cv::imshow("image", img_dis);
     cv::imshow("quadrilateral", quad);
     cv::waitKey();
     return 0;
