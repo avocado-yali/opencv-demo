@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>326DC6BC-015E-4E71-80A0-618AC584F20D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ovtest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>74933E10BC43C0A8B158A6AB7702D7D052167F9F</key>
+		<string>github.com:avocado-yali/opencv-demo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ovtest.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>74933E10BC43C0A8B158A6AB7702D7D052167F9F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:avocado-yali/opencv-demo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>74933E10BC43C0A8B158A6AB7702D7D052167F9F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>74933E10BC43C0A8B158A6AB7702D7D052167F9F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>opencv-demo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
