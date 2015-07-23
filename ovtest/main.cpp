@@ -180,7 +180,7 @@ void scan(String file, bool debug = true) {
 }
 
 int main(int argc, char** argv) {
-    string img_path[] = {"images/doc1.jpg", "images/doc2.jpg", "images/doc3.jpg"};
-    scan(img_path[2]);
+    string img_path[] = {"myimg-2.png", "images/doc2.jpg", "images/doc3.jpg"};
+    scan(img_path[0]);
     return 0;
 }
