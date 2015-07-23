@@ -23,7 +23,7 @@ using namespace std;
 void getCanny(Mat gray, Mat &canny) {
     Mat thres;
     double high_thres = threshold(gray, thres, 0, 255, CV_THRESH_BINARY | CV_THRESH_OTSU), low_thres = high_thres * 0.5;
-    cv::Canny(gray, canny, low_thres, high_thres);
+    Canny(gray, canny, low_thres, high_thres);
 }
 
 struct Line {
