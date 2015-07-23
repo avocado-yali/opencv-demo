@@ -32,7 +32,7 @@
 		03B7C6FF1B5DE1F000A4FDA6 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 			);
@@ -41,6 +41,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		039387DC1B60801400763A00 /* auto.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = auto.cpp; sourceTree = "<group>"; };
+		039387DD1B60801400763A00 /* auto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = auto.h; sourceTree = "<group>"; };
 		039D50D21B5F69F7002A08C5 /* libopencv_gpu.2.4.11.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_gpu.2.4.11.dylib; path = /usr/local/Cellar/opencv/2.4.11_1/lib/libopencv_gpu.2.4.11.dylib; sourceTree = "<absolute>"; };
 		039D50D31B5F69F7002A08C5 /* libopencv_photo.2.4.11.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.2.4.11.dylib; path = /usr/local/Cellar/opencv/2.4.11_1/lib/libopencv_photo.2.4.11.dylib; sourceTree = "<absolute>"; };
 		039D50D71B5F6B2D002A08C5 /* libopencv_calib3d.2.4.11.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.4.11.dylib; path = /usr/local/Cellar/opencv/2.4.11_1/lib/libopencv_calib3d.2.4.11.dylib; sourceTree = "<absolute>"; };
@@ -139,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				03B7C7041B5DE1F000A4FDA6 /* main.cpp */,
+				039387DC1B60801400763A00 /* auto.cpp */,
+				039387DD1B60801400763A00 /* auto.h */,
 				039D50F31B5F6C66002A08C5 /* my_image.jpg */,
 			);
 			path = ovtest;
